@@ -14,7 +14,7 @@ export default function RootLayout() {
             className='flex items-center gap-2 mr-auto text-3xl font-bold'
           >
             <TbNorthStar/>
-            <span>Shopaholi</span>
+            <span>Shopaholic</span>
           </Link>
           {/* links */}
           <NavLink className="px-4 py-2 text-lg" to="/">Home</NavLink>
