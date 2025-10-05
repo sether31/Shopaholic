@@ -1,7 +1,7 @@
 import RootLayout from "./layouts/RootLayout";
 import { createBrowserRouter } from "react-router-dom";
 import Home from "./pages/home";
-import Shop from "./pages/shop";
+import Shop, { shopLoader } from "./pages/shop";
 import Cart from "./pages/cart";
 import NotFoundPage from "./pages/NotFoundPage";
 
@@ -13,7 +13,7 @@ export const router = createBrowserRouter([
     element: <RootLayout />,
     children: [
       { index: true, element: <Home /> },
-      { path: 'shop', element: <Shop /> },
+      { path: 'shop', element: <Shop />, loader: shopLoader },
       { path: 'cart', element: <Cart /> },
       { path: '*', element: <NotFoundPage /> }
     ]
