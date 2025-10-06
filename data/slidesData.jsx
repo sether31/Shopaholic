@@ -12,7 +12,7 @@
       titleImg: 'T shirt image',
       title: 'Style on your own terms.',
       link: {
-        goTo: 'shop',
+        goTo: 'products',
         text: 'Shop now'
       }
     },
@@ -22,7 +22,7 @@
       titleImg: 'Denim pants image',
       title: 'Find your fit.',
       link: {
-        goTo: 'shop',
+        goTo: 'products',
         text: 'Browse'
       }
     },
@@ -32,7 +32,7 @@
       titleImg: 'titleImage',
       title: 'Confidence starts here.',
       link: {
-        goTo: 'shop',
+        goTo: 'products',
         text: 'Discover'
       }
     },

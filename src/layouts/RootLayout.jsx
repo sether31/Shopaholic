@@ -6,7 +6,7 @@ import { TbNorthStar } from "react-icons/tb";
 export default function RootLayout() {
   return (
     <>
-      <header className='fixed w-full text-white bg-black/90 z-1'>
+      <header className='fixed w-full text-white bg-black z-1'>
         <nav className='flex items-center py-4 container-xl'>
           {/* logo */}
           <Link 
@@ -18,7 +18,7 @@ export default function RootLayout() {
           </Link>
           {/* links */}
           <NavLink className="px-4 py-2 text-lg" to="/">Home</NavLink>
-          <NavLink className="px-4 py-2 text-lg" to="shop">Shop</NavLink>
+          <NavLink className="px-4 py-2 text-lg" to="products">Shop</NavLink>
           <NavLink className="px-4 py-2" to="cart">
             <FaShoppingBag size={25} />
           </NavLink>
