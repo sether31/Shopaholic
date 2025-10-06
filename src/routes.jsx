@@ -1,11 +1,11 @@
 import RootLayout from "./layouts/RootLayout";
 import { createBrowserRouter } from "react-router-dom";
 import Home from "./pages/home";
-import Shop, { shopLoader } from "./pages/shop";
 import Cart from "./pages/cart";
-import NotFoundPage from "./pages/NotFoundPage";
-
-
+import PageError from "./pages/pageError";
+import ShopLayout from "./layouts/ShopLayout";
+import Products, { productsLoader } from "./pages/shop/products";
+import ProductDetails, { productDetailsLoader } from "./pages/shop/productDetails";
 
 export const router = createBrowserRouter([
   {
@@ -13,9 +13,17 @@ export const router = createBrowserRouter([
     element: <RootLayout />,
     children: [
       { index: true, element: <Home /> },
-      { path: 'shop', element: <Shop />, loader: shopLoader },
+      { 
+        path: 'products', 
+        element: <ShopLayout />, 
+        errorElement: <PageError />,
+        children: [
+          { index: true, element: <Products />, loader: productsLoader},
+          { path: ":id", element: <ProductDetails />, loader: productDetailsLoader}
+        ]
+      },
       { path: 'cart', element: <Cart /> },
-      { path: '*', element: <NotFoundPage /> }
+      { path: '*', element: <PageError /> }
     ]
   }
 ]);
