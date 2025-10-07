@@ -1,9 +1,10 @@
 import { Link, NavLink, Outlet } from 'react-router-dom'
 import { FaShoppingBag } from "react-icons/fa";
 import { TbNorthStar } from "react-icons/tb";
-
+import { useCart } from '../context/CartContext';
 
 export default function RootLayout() {
+  const { allQuantity } = useCart();
   return (
     <>
       <header className='fixed w-full text-white bg-black z-1'>
@@ -17,9 +18,22 @@ export default function RootLayout() {
             <span>Shopaholic</span>
           </Link>
           {/* links */}
-          <NavLink className="px-4 py-2 text-lg" to="/">Home</NavLink>
-          <NavLink className="px-4 py-2 text-lg" to="products">Shop</NavLink>
-          <NavLink className="px-4 py-2" to="cart">
+          <NavLink 
+            to="/"
+            className={({isActive}) => isActive ? "px-4 py-2 text-lg font-bold" : "px-4 py-2 text-lg" } 
+          >
+            Home
+          </NavLink>
+          <NavLink 
+            to="products"
+            className={({isActive}) => isActive ? "px-4 py-2 text-lg font-bold" : "px-4 py-2 text-lg" }
+          >
+            Shop
+          </NavLink>
+          <NavLink className="relative px-4 py-2" to="cart">
+            {(allQuantity() > 0) && (
+              <span className='absolute p-1 text-[10px] bg-blue-500 rounded-full top-0 right-2 w-max h-max'>{allQuantity()}</span>
+            )}
             <FaShoppingBag size={25} />
           </NavLink>
         </nav>
