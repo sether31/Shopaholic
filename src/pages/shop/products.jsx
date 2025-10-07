@@ -6,7 +6,7 @@ export default function Products() {
   console.log(products)
 
   return (
-    <div className='grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 mt-6 gap-x-4 gap-y-12'>
+    <div className='grid grid-cols-1 mt-6 sm:grid-cols-2 xl:grid-cols-3 gap-x-4 gap-y-12'>
       {products.map((product) => (
         <Link
           to={`${product.id}`}
@@ -17,7 +17,7 @@ export default function Products() {
             <img 
               src={product.image} 
               alt={product.titleImage} 
-              className='h-[250px] mx-auto group-hover:scale-105 duration-300'
+              className='h-[250px] mx-auto group-hover:scale-105 duration-300 drop-shadow-lg drop-shadow-black/80'
             />
           </div>
           <h2 className='px-4 font-bold'>
