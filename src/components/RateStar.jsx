@@ -1,6 +1,6 @@
 import { FaRegStar, FaStar, FaStarHalfAlt } from "react-icons/fa";
 
-export default function RateStar({ rating, count, isOutOf = 5 }) {
+export default function RateStar({ rating, count = 0, isOutOf = 5 }) {
   const stars = [];
 
   for(let i = 0; i < isOutOf; i++) {
@@ -15,7 +15,7 @@ export default function RateStar({ rating, count, isOutOf = 5 }) {
 
   return (
     <div className="flex items-center gap-1">
-      {stars} {count ? `(${count})` : ''}
+      {stars} <small>{`(${count} reviews)`}</small>
     </div>
   )
 }
