@@ -70,13 +70,13 @@ export default function CartProvider({ children }) {
     }
   }
 
-  const allQuantity = () => {
-    const getQuantity = carts.reduce((total, item) => total += item.quantity, 0);
-    return getQuantity;
+  // all items in the cart
+  const allItems = () => {
+    return carts.length;
   }
 
   return (
-    <CartContext.Provider value={{carts, addToCart, allQuantity, updateQuantity, removeItem, totalAmount, checkOut}}>
+    <CartContext.Provider value={{carts, addToCart, allItems, updateQuantity, removeItem, totalAmount, checkOut}}>
       {children}
     </CartContext.Provider>
   )
