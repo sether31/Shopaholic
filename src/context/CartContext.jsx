@@ -35,13 +35,48 @@ export default function CartProvider({ children }) {
     });
   }
 
-  const allQuantity = () => {
-    const getQuantity = carts.reduce((total, item) => total += item.quantity, 0);
-    return getQuantity;
+  // update quantity
+  const updateQuantity = (id, quantity) => {
+    setCarts((prev) => {
+      if(quantity <= 0){
+        return prev.filter(item => item.id !== id)
+      } else {
+        return prev.map(item => {
+          return (item.id === id) ? {...item, quantity} : item
+        })
+      }
+    })
+  }
+
+  // remove item
+  const removeItem = (id) => {
+    setCarts((prev) => {
+      return prev.filter(item => item.id !== id);
+    })
+  }
+
+  // total amount
+  const totalAmount = () => {
+    const total = carts.reduce((total, item) => total += (item.price * item.quantity), 0)
+    return total;
+  }
+
+  // checkout all
+  const checkOut = () => {
+    const check = confirm('Are you sure you want to checkout your cart?');
+    if(check) {
+      alert('Checkout successful')
+      setCarts([]);
+    }
+  }
+
+  // all items in the cart
+  const allItems = () => {
+    return carts.length;
   }
 
   return (
-    <CartContext.Provider value={{carts, addToCart, allQuantity}}>
+    <CartContext.Provider value={{carts, addToCart, allItems, updateQuantity, removeItem, totalAmount, checkOut}}>
       {children}
     </CartContext.Provider>
   )
