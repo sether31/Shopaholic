@@ -33,15 +33,9 @@ export default function cartReducer(state, action) {
       const { id } = action.payload; 
       return state.filter(item => item.id !== id);
     }
-
-    case 'TOTAL_ITEM_AMOUNT': 
-      return state.reduce((total, item) => total += (item.price * item.quantity), 0)
     
     case 'CHECKOUT_CART':
       return [];
-
-    case 'GET_ALL_ITEMS':
-      return state.length;
 
     default:
       return state;

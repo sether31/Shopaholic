@@ -41,11 +41,6 @@ export default function CartProvider({ children }) {
     dispatch({ type: "REMOVE_CART_ITEM", payload: {id} });
   }
 
-  // total amount
-  const totalAmount = () => {
-    dispatch({ type: 'TOTAL_ITEM_AMOUNT' });
-  }
-
   // checkout all
   const checkOut = () => {
     const check = confirm('Are you sure you want to checkout your cart?');
@@ -55,9 +50,14 @@ export default function CartProvider({ children }) {
     }
   }
 
+  // total amount
+  const totalAmount = () => {
+    return carts.reduce((total, item) => total += (item.price * item.quantity), 0);
+  }
+
   // all items in the cart
   const allItems = () => {
-    return dispatch({ type: 'CHECKOUT_CART' })
+    return carts.length;
   }
 
   return (
