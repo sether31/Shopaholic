@@ -1,9 +1,9 @@
-  import image1Big from '../src/assets/image-1-big.jpeg'
-  import image1Small from '../src/assets/image-1-small.jpeg'
-  import image2Big from '../src/assets/image-2-big.webp'
-  import image2Small from '../src/assets/image-2-small.webp'
-  import image3Big from '../src/assets/image-3-big.webp'
-  import image3Small from '../src/assets/image-3-small.webp'
+  import image1Big from '../public/image-1-big.jpeg'
+  import image1Small from '../public/image-1-small.jpeg'
+  import image2Big from '../public/image-2-big.webp'
+  import image2Small from '../public/image-2-small.webp'
+  import image3Big from '../public/image-3-big.webp'
+  import image3Small from '../public/image-3-small.webp'
   
   const slidesData = [
     {

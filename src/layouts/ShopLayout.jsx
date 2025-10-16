@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import BreadCrumbs from '../components/Breadcrumbs';
+import BreadCrumbs from '../components/BreadCrumbs';
 
 function ShopLayout() {
   return (

@@ -32,13 +32,13 @@ export default function Cart() {
                   {/* item details */}
                   <td className="py-8 pr-2 md:pr-4">
                     <div className="flex flex-col gap-2 md:gap-4 md:flex-row item-center">
-                      <div className="flex-shrink-0 px-8 py-4 overflow-hidden border-gray-200 border-6 group hover:border-blue-300">
+                      <Link to={`/products/${item.id}`} className="flex-shrink-0 px-8 py-4 overflow-hidden border-gray-200 cursor-pointer border-6 group hover:border-blue-300">
                         <img 
                           src={item.image} 
                           alt={item.title} 
                           className="h-[50px] w-[50px] mx-auto duration-300 group-hover:scale-105 drop-shadow-lg drop-shadow-black/80"
                         />
-                      </div>
+                      </Link>
                       <p className="self-center text-center md:text-left">{item.title}</p>
                     </div>
                   </td> 
