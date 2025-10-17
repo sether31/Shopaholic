@@ -44,9 +44,9 @@ export default function RootLayout() {
               Shop
             </NavLink>
             <NavLink className="relative px-4 py-2" to="cart">
-              {(allItems() > 0) && (
+              {(allItems > 0) && (
                 <span className='absolute p-1 text-[10px] bg-blue-500 rounded-full top-0 right-2 flex items-center justify-center min-w-4 h-4'>
-                  {allItems()}
+                  {allItems}
                 </span>
               )}
               <FaShoppingBag size={25} />
@@ -72,9 +72,9 @@ export default function RootLayout() {
             Shop
           </NavLink>
           <NavLink className="relative px-4 py-2" to="cart">
-            {(allItems() > 0) && (
+            {(allItems > 0) && (
               <span className='absolute p-1 text-[10px] bg-blue-500 rounded-full top-0 right-2 flex items-center justify-center min-w-4 h-4'>
-                {allItems()}
+                {allItems}
               </span>
             )}
             <FaShoppingBag size={25} />

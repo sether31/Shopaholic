@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useReducer } from "react";
+import { createContext, useCallback, useContext, useEffect, useMemo, useReducer } from "react";
 import cartReducer from "../reducers/cartReducer";
 
 
@@ -20,8 +20,19 @@ export default function CartProvider({ children }) {
     localStorage.setItem('carts', JSON.stringify(carts));
   }, [carts])
 
+  // total amount
+  const totalAmount = useMemo(() => {
+    return carts.reduce((total, item) => total += (item.price * item.quantity), 0);
+  }, [carts])
+
+  // all items in the cart
+  const allItems = useMemo(() => {
+    return carts.length;
+  }, [carts])
+
+
   // add cart items
-  const addToCart = (product, quantity) => {
+  const addToCart = useCallback((product, quantity) => {
     if(!product || !product.id) return;
     if(quantity === 0) {
       alert('Cannot add 0 quantity');
@@ -29,36 +40,26 @@ export default function CartProvider({ children }) {
     }
     dispatch({ type: "ADD_TO_CART", payload: { product, quantity } });
     alert('Added to cart!');
-  }
+  }, [dispatch])
 
   // update quantity
-  const updateQuantity = (id, quantity) => {
+  const updateQuantity = useCallback((id, quantity) => {
     dispatch({ type: "UPDATE_CART_QUANTITY" , payload: {id, quantity} });
-  }
+  }, [dispatch])
 
   // remove item
-  const removeItem = (id) => {
+  const removeItem = useCallback((id) => {
     dispatch({ type: "REMOVE_CART_ITEM", payload: {id} });
-  }
+  }, [dispatch])
 
   // checkout all
-  const checkOut = () => {
+  const checkOut = useCallback(() => {
     const check = confirm('Are you sure you want to checkout your cart?');
     if(check) {
       alert('Checkout successful')
       dispatch({ type: 'CHECKOUT_CART' });
     }
-  }
-
-  // total amount
-  const totalAmount = () => {
-    return carts.reduce((total, item) => total += (item.price * item.quantity), 0);
-  }
-
-  // all items in the cart
-  const allItems = () => {
-    return carts.length;
-  }
+  }, [dispatch])
 
   return (
     <CartContext.Provider 

@@ -118,7 +118,7 @@ export default function Cart() {
                 Subtotal
               </sup>
               <p className="text-3xl font-bold">
-                &euro;{totalAmount().toLocaleString("en-US", {
+                &euro;{totalAmount.toLocaleString("en-US", {
                   minimumFractionDigits: 2,
                   maximumFractionDigits: 2
                 })}
